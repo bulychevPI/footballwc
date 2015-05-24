@@ -13,8 +13,10 @@
     </head>
     <body>
         <h1>Hello World!Ку ку</h1>
+        
+        <h1>Message : </h1>
         <form action="poops">
-            <input type="submit">Poops</form>
+            <input type="submit">bla</form>
         </form>
     </body>
 </html>
