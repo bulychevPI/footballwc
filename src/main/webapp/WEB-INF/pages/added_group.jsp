@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 24.05.2015, 12:32:56
+    Document   : added_group
+    Created on : 27.05.2015, 10:48:17
     Author     : HP
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!qwerty</h1>
+        <h1>Добавлена ${group}</h1>
     </body>
 </html>

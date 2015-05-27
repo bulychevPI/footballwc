@@ -46,24 +46,24 @@ public class Match implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idMatch")
+    @Column(name = "idMatch", nullable = false)
     private Integer idMatch;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 25)
-    @Column(name = "stage")
+    @Column(name = "stage", nullable = false, length = 25)
     private String stage;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "time")
+    @Column(name = "time", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date time;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMatch")
     private Collection<Goal> goalCollection;
-    @JoinColumn(name = "idTeam1", referencedColumnName = "idTeam")
+    @JoinColumn(name = "idTeam1", referencedColumnName = "idTeam", nullable = false)
     @ManyToOne(optional = false)
     private Team idTeam1;
-    @JoinColumn(name = "idTeam2", referencedColumnName = "idTeam")
+    @JoinColumn(name = "idTeam2", referencedColumnName = "idTeam", nullable = false)
     @ManyToOne(optional = false)
     private Team idTeam2;
 
@@ -151,7 +151,7 @@ public class Match implements Serializable {
 
     @Override
     public String toString() {
-        return "com.footballwc.entities.Match[ idMatch=" + idMatch + " ]";
+        return "com.footbalwc.entity.Match[ idMatch=" + idMatch + " ]";
     }
     
 }

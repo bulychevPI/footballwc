@@ -42,12 +42,12 @@ public class Team implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idTeam")
+    @Column(name = "idTeam", nullable = false)
     private Integer idTeam;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
-    @Column(name = "country")
+    @Column(name = "country", nullable = false, length = 45)
     private String country;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTeam1")
     private Collection<Match> matchCollection;
@@ -144,7 +144,7 @@ public class Team implements Serializable {
 
     @Override
     public String toString() {
-        return "com.footballwc.entities.Team[ idTeam=" + idTeam + " ]";
+        return "com.footbalwc.entity.Team[ idTeam=" + idTeam + " ]";
     }
     
 }
