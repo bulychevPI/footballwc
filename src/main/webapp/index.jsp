@@ -1,6 +1,6 @@
 <%-- 
     Document   : index
-    Created on : 24.05.2015, 12:32:56
+    Created on : 09.05.2015, 17:24:49
     Author     : HP
 --%>
 
@@ -12,7 +12,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!qwerty</h1>
-        <a href="${pageContext.request.contextPath}/team/add">welcome</a>
+        <h1>Hello World!Ку ку</h1>
+        
+        <h1>Message : </h1>
+        <form action="poops">
+            <input type="submit">bla</form>
+        </form>
     </body>
 </html>

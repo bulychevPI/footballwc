@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.footbalwc.entity;
+package com.footballwc.entity;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -37,16 +37,16 @@ public class Goal implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idGoal", nullable = false)
+    @Column(name = "idGoal")
     private Integer idGoal;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "minute", nullable = false)
+    @Column(name = "minute")
     private int minute;
-    @JoinColumn(name = "idPlayer", referencedColumnName = "idPlayer", nullable = false)
+    @JoinColumn(name = "idPlayer", referencedColumnName = "idPlayer")
     @ManyToOne(optional = false)
     private Player idPlayer;
-    @JoinColumn(name = "idMatch", referencedColumnName = "idMatch", nullable = false)
+    @JoinColumn(name = "idMatch", referencedColumnName = "idMatch")
     @ManyToOne(optional = false)
     private Match idMatch;
 
@@ -116,7 +116,7 @@ public class Goal implements Serializable {
 
     @Override
     public String toString() {
-        return "com.footbalwc.entity.Goal[ idGoal=" + idGoal + " ]";
+        return "com.footballwc.entities.Goal[ idGoal=" + idGoal + " ]";
     }
     
 }
