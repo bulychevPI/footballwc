@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.footballwc.entity;
+package com.footbalwc.entity;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -39,12 +39,12 @@ public class Fgroup implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idGroup")
+    @Column(name = "idGroup", nullable = false)
     private Integer idGroup;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2)
-    @Column(name = "groupName")
+    @Column(name = "groupName", nullable = false, length = 2)
     private String groupName;
     @OneToMany(mappedBy = "idGroup")
     private Collection<Team> teamCollection;
@@ -108,7 +108,7 @@ public class Fgroup implements Serializable {
 
     @Override
     public String toString() {
-        return "com.footballwc.entities.Fgroup[ idGroup=" + idGroup + " ]";
+        return "com.footbalwc.entity.Fgroup[ idGroup=" + idGroup + " ]";
     }
     
 }

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 24.05.2015, 12:32:56
+    Document   : added_team
+    Created on : 26.05.2015, 14:03:52
     Author     : HP
 --%>
 
@@ -12,7 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!qwerty</h1>
-        <a href="${pageContext.request.contextPath}/team/add">welcome</a>
+        <h1>Team added!${country}</h1>
     </body>
 </html>

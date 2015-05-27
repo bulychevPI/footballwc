@@ -1,0 +1,148 @@
+h1{
+    color:#0d22dd;
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+.table-hello{
+	width: 20%;
+	margin-left:15px;
+	
+}
+
+.center{
+
+	text-align:center;
+}
+
+
+.circle{
+		-webkit-border-top-left-radius: 10px; 
+	-webkit-border-top-right-radius: 20px; 
+	-webkit-border-bottom-right-radius: 30px; 
+	-webkit-border-bottom-left-radius: 40px;
+}
+
+.head-text{
+	color: black;
+}
+
+.table-bg {
+	background-color: rgba(255, 255, 255, 0.35); 
+	//background: linear-gradient(to top, #FFFAFA, #DCDCDC);
+
+	-webkit-border-bottom-right-radius: 30px; 
+
+}
+
+.img-picture{
+
+	margin:20px;
+}
+
+.table-about-picture{
+	background-color: rgba(255, 255, 255, 0.15);
+	height: 200px;
+}
+
+.table-admin{
+	padding: 20px;
+	width: 1200px;
+	margin-left: 80px auto;
+	margin-right: 80px auto;
+	background-color: rgba(0, 0, 0, 0.15); 
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+}
+
+.container-add{
+	width: 550px; 
+	background-color: rgba(0, 0, 0, 0.15); 
+	padding:20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+}
+
+.container-about{
+		width: 1000px; 
+		text-align:justify;
+	background-color: rgba(0, 0, 0, 0.15); 
+	padding:20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+}
+
+#login-box {
+	width: 500px;
+	padding: 20px;
+	margin: 80px auto;
+	background-color: rgba(255, 255, 255, 0.4); ;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+
+}
+
+.table-picture{
+
+	width:800px;
+	height:900px;
+	background-color: rgba(0, 0, 0, 0.15); 
+
+	-webkit-border-bottom-right-radius: 30px; 
+	-webkit-border-bottom-left-radius: 40px;
+}
+
+.table-picture-edit{
+	width:800px;
+	height:800px;
+	padding:20px;
+	margin:20px;
+	background-color: rgba(0, 0, 0, 0.15); 
+	
+	
+	-webkit-border-bottom-right-radius: 30px; 
+	-webkit-border-bottom-left-radius: 40px;
+}
+
+
+
+
+.table-search{
+		margin-left:10px;
+
+	width:800px;
+	height:500px;
+	background-color: rgba(28, 28, 28, 0.05); 
+
+	-webkit-border-bottom-right-radius: 30px; 
+	-webkit-border-bottom-left-radius: 40px;
+}
+
+.table-center-gallery{
+	margin-left:310px;
+
+	width:55%;
+	height:500px;
+	background-color: rgba(28, 28, 28, 0.05); 
+
+	-webkit-border-bottom-right-radius: 30px; 
+	-webkit-border-bottom-left-radius: 40px;
+	//background: linear-gradient(to top, #FFFAFA, #DCDCDC);
+}
+
+.btn-link{
+	color: white;
+}
+.img-style{
+	background:linear-gradient(to top, #CAE1FF, #8B8682);
+	
+	
+}
