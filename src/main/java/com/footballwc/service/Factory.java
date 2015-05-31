@@ -4,6 +4,7 @@ import com.footballwc.dao.DAO;
 import com.footballwc.dao.DAOImpl;
 import com.footballwc.entity.Fgroup;
 import com.footballwc.entity.Goal;
+import com.footballwc.entity.Groupresults;
 import com.footballwc.entity.Match;
 import com.footballwc.entity.Player;
 import com.footballwc.entity.Team;
@@ -17,6 +18,8 @@ public class Factory {
 	private static DAO<Match> matchDAO = null;
 	private static DAO<Player> playerDAO = null;
 	private static DAO<Team> teamDAO = null;
+        private static DAO<Groupresults> GroupresultsDAO = null;
+
 	
 
 	public static synchronized Factory getInstance() {
@@ -47,20 +50,26 @@ public class Factory {
 		return matchDAO;
 	}
 
-	public static DAO<Player> getCustomerInfoDAO() {
+	public static DAO<Player> getPlayerDAO() {
 		if (playerDAO == null)
 			playerDAO = new DAOImpl<Player>(
 					(Class<Player>) (new Player().getClass()));
 		return playerDAO;
 	}
 
-	public static DAO<Team> getCustomerrServicePaintingsDAO() {
+	public static DAO<Team> getTeamDAO() {
 		if (teamDAO == null)
 			teamDAO = new DAOImpl<Team>(
 					(Class<Team>) (new Team()
 							.getClass()));
 		return teamDAO;
 	}
-
+        public static DAO<Groupresults> getGroupresultsDAO() {
+		if (GroupresultsDAO == null)
+			GroupresultsDAO = new DAOImpl<Groupresults>(
+					(Class<Groupresults>) (new Groupresults()
+							.getClass()));
+		return GroupresultsDAO;
+	}
 	
 }

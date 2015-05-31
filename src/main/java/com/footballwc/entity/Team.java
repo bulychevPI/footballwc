@@ -20,6 +20,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -38,6 +39,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Team.findByIdTeam", query = "SELECT t FROM Team t WHERE t.idTeam = :idTeam"),
     @NamedQuery(name = "Team.findByCountry", query = "SELECT t FROM Team t WHERE t.country = :country")})
 public class Team implements Serializable {
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "team")
+    private Groupresults groupresults;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -145,6 +148,14 @@ public class Team implements Serializable {
     @Override
     public String toString() {
         return "com.footbalwc.entity.Team[ idTeam=" + idTeam + " ]";
+    }
+
+    public Groupresults getGroupresults() {
+        return groupresults;
+    }
+
+    public void setGroupresults(Groupresults groupresults) {
+        this.groupresults = groupresults;
     }
     
 }

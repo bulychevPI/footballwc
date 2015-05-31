@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.footballwc.entity;
 
 import java.io.Serializable;
@@ -31,22 +30,25 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Goal.findAll", query = "SELECT g FROM Goal g"),
     @NamedQuery(name = "Goal.findByIdGoal", query = "SELECT g FROM Goal g WHERE g.idGoal = :idGoal"),
-    @NamedQuery(name = "Goal.findByMinute", query = "SELECT g FROM Goal g WHERE g.minute = :minute")})
+    @NamedQuery(name = "Goal.findByMinute", query = "SELECT g FROM Goal g WHERE g.minute = :minute"),
+    @NamedQuery(name = "Goal.findByPenalties", query = "SELECT g FROM Goal g WHERE g.penalties = :penalties")})
 public class Goal implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idGoal", nullable = false)
+    @Column(name = "idGoal")
     private Integer idGoal;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "minute", nullable = false)
+    @Column(name = "minute")
     private int minute;
-    @JoinColumn(name = "idPlayer", referencedColumnName = "idPlayer", nullable = false)
+    @Column(name = "Penalties")
+    private Boolean penalties;
+    @JoinColumn(name = "idPlayer", referencedColumnName = "idPlayer")
     @ManyToOne(optional = false)
     private Player idPlayer;
-    @JoinColumn(name = "idMatch", referencedColumnName = "idMatch", nullable = false)
+    @JoinColumn(name = "idMatch", referencedColumnName = "idMatch")
     @ManyToOne(optional = false)
     private Match idMatch;
 
@@ -76,6 +78,14 @@ public class Goal implements Serializable {
 
     public void setMinute(int minute) {
         this.minute = minute;
+    }
+
+    public Boolean getPenalties() {
+        return penalties;
+    }
+
+    public void setPenalties(Boolean penalties) {
+        this.penalties = penalties;
     }
 
     public Player getIdPlayer() {
@@ -116,7 +126,7 @@ public class Goal implements Serializable {
 
     @Override
     public String toString() {
-        return "com.footbalwc.entity.Goal[ idGoal=" + idGoal + " ]";
+        return "com.footballwc.entity.Goal[ idGoal=" + idGoal + " ]";
     }
     
 }
