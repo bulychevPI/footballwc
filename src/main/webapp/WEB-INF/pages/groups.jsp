@@ -9,19 +9,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Adding Group</title>
+        <title>Groups</title>
     </head>
     <body>
-        <h1>Adding Group</h1>
+        <h1>${message}</h1>
         <ul>
             <c:forEach items="${groups}" var="group">
-                <li>${group.groupName}</li>
+                <a href="team/add/${group.idGroup}"><li>${group.groupName}</li></a>
             </c:forEach>
+                
         </ul>
 
-        <form name="TeamData" action=""  method='POST'>
-            <!--<label>Группа: </label> <input name="group"  type="text" placeholder="Группа">--> 
-            <input type="submit" value="Добавить">
-        </form>
+       
     </body>
 </html>

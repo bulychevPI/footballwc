@@ -5,30 +5,44 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
+import com.footballwc.service.Factory;
+import java.sql.SQLException;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-
-    @RequestMapping(value="/group/add",method = RequestMethod.GET)
-    public String printTeamForm(ModelMap model) {
-
-        model.addAttribute("message", "group adding");
-        return "add_group";
+    
+    @RequestMapping(value="/groups",method = RequestMethod.GET)
+    public String printGroups(ModelMap model) throws SQLException {
+        model.addObject("groups",Factory.getInstance().getFGroupDAO().getAll());
+        model.addAttribute("message", "List of Groups");
+        return "groups";
 
     }
-    @RequestMapping(value="/group/add",method = RequestMethod.POST)
-    public String addGroup(@RequestParam("group") String group, ModelMap model) {
-        System.out.println("Вот она страна моей мечты"+group);
-        model.addAttribute("group", group);
-        return "added_group";
+
+    @RequestMapping(value="/team/add/{groupId}",method = RequestMethod.GET)
+    public String printTeamForm(ModelMap model,@PathVariable int groupId) throws SQLException {
+        model.addObject("group",Factory.getInstance().getFGroupDAO().getById(groupId));
+        model.addAttribute("message", "Team adding to group");
+        return "team_add";
+
+    }
+    @RequestMapping(value="/team/add",method = RequestMethod.POST)
+    public String addGroup(@RequestParam("groupId") int groupId,@RequestParam("country") String country, ModelMap model) {
+        model.addAttribute("country", country);
+        model.addAttribute("groupId", groupId);
+        return "team_added";
 
     } 
     @RequestMapping(value="/bob",method = RequestMethod.GET)
-    public String printWelcomeBob(ModelMap model) {
-
-        model.addAttribute("message", "BoB");
-        return "added_group";
+    public ModelAndView printWelcomeBob() {
+    
+        ModelAndView model = new ModelAndView();
+        model.addObject("message", "BoB");
+        model.setViewName("team_add");
+        return model;
 
     }
     

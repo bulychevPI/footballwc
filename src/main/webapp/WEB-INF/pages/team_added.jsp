@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 24.05.2015, 12:32:56
+    Document   : team_added
+    Created on : 30.05.2015, 11:15:46
     Author     : HP
 --%>
 
@@ -12,9 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <a href="admin/groups">admin/groups</a>
-        <br>
-        
-        <h1>Hello World!qwerty</h1>
+        <h1>team added</h1>
+        ${country} ${groupId}
     </body>
 </html>
