@@ -4,6 +4,10 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.footballwc.entity.Goal</class>
     <class>com.footballwc.entity.Groupresults</class>
+    <class>com.footballwc.entity.Match</class>
+    <class>com.footballwc.entity.Player</class>
+    <class>com.footballwc.entity.Team</class>
+    <class>com.footballwc.entity.Fgroup</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/footballwc?zeroDateTimeBehavior=convertToNull"/>

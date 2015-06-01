@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.footballwc.entity;
 
 import java.io.Serializable;
@@ -39,23 +38,23 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Team.findByIdTeam", query = "SELECT t FROM Team t WHERE t.idTeam = :idTeam"),
     @NamedQuery(name = "Team.findByCountry", query = "SELECT t FROM Team t WHERE t.country = :country")})
 public class Team implements Serializable {
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "team")
-    private Groupresults groupresults;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idTeam", nullable = false)
+    @Column(name = "idTeam")
     private Integer idTeam;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
-    @Column(name = "country", nullable = false, length = 45)
+    @Column(name = "country")
     private String country;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTeam1")
+    @OneToMany( mappedBy = "idTeam1")
     private Collection<Match> matchCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTeam2")
+    @OneToMany( mappedBy = "idTeam2")
     private Collection<Match> matchCollection1;
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "team")
+    private Groupresults groupresults;
     @JoinColumn(name = "idGroup", referencedColumnName = "idGroup")
     @ManyToOne
     private Fgroup idGroup;
@@ -108,6 +107,14 @@ public class Team implements Serializable {
         this.matchCollection1 = matchCollection1;
     }
 
+    public Groupresults getGroupresults() {
+        return groupresults;
+    }
+
+    public void setGroupresults(Groupresults groupresults) {
+        this.groupresults = groupresults;
+    }
+
     public Fgroup getIdGroup() {
         return idGroup;
     }
@@ -147,15 +154,7 @@ public class Team implements Serializable {
 
     @Override
     public String toString() {
-        return "com.footbalwc.entity.Team[ idTeam=" + idTeam + " ]";
-    }
-
-    public Groupresults getGroupresults() {
-        return groupresults;
-    }
-
-    public void setGroupresults(Groupresults groupresults) {
-        this.groupresults = groupresults;
+        return "com.footballwc.entity.Team[ idTeam=" + idTeam + " ]";
     }
     
 }

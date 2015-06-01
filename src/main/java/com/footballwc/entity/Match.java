@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.footballwc.entity;
 
 import java.io.Serializable;
@@ -40,30 +39,30 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Match.findAll", query = "SELECT m FROM Match m"),
     @NamedQuery(name = "Match.findByIdMatch", query = "SELECT m FROM Match m WHERE m.idMatch = :idMatch"),
     @NamedQuery(name = "Match.findByStage", query = "SELECT m FROM Match m WHERE m.stage = :stage"),
-    @NamedQuery(name = "Match.findByTime", query = "SELECT m FROM Match m WHERE m.time = :time")})
+    @NamedQuery(name = "Match.findByDate", query = "SELECT m FROM Match m WHERE m.date = :date")})
 public class Match implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idMatch", nullable = false)
+    @Column(name = "idMatch")
     private Integer idMatch;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 25)
-    @Column(name = "stage", nullable = false, length = 25)
+    @Column(name = "stage")
     private String stage;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "time", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date time;
+    @Column(name = "date")
+    @Temporal(TemporalType.DATE)
+    private Date date;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMatch")
     private Collection<Goal> goalCollection;
-    @JoinColumn(name = "idTeam1", referencedColumnName = "idTeam", nullable = false)
+    @JoinColumn(name = "idTeam1", referencedColumnName = "idTeam")
     @ManyToOne(optional = false)
     private Team idTeam1;
-    @JoinColumn(name = "idTeam2", referencedColumnName = "idTeam", nullable = false)
+    @JoinColumn(name = "idTeam2", referencedColumnName = "idTeam")
     @ManyToOne(optional = false)
     private Team idTeam2;
 
@@ -74,10 +73,10 @@ public class Match implements Serializable {
         this.idMatch = idMatch;
     }
 
-    public Match(Integer idMatch, String stage, Date time) {
+    public Match(Integer idMatch, String stage, Date date) {
         this.idMatch = idMatch;
         this.stage = stage;
-        this.time = time;
+        this.date = date;
     }
 
     public Integer getIdMatch() {
@@ -96,12 +95,12 @@ public class Match implements Serializable {
         this.stage = stage;
     }
 
-    public Date getTime() {
-        return time;
+    public Date getDate() {
+        return date;
     }
 
-    public void setTime(Date time) {
-        this.time = time;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @XmlTransient
@@ -151,7 +150,7 @@ public class Match implements Serializable {
 
     @Override
     public String toString() {
-        return "com.footbalwc.entity.Match[ idMatch=" + idMatch + " ]";
+        return "com.footballwc.entity.Match[ idMatch=" + idMatch + " ]";
     }
     
 }

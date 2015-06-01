@@ -12,14 +12,17 @@
         <title>Groups</title>
     </head>
     <body>
+        <%if (session.getAttribute("authorized") == null || session.getAttribute("authorized").equals("false")) {
+            response.sendRedirect(request.getContextPath().concat("/admin"));
+        }%>
+
         <h1>${message}</h1>
         <ul>
             <c:forEach items="${groups}" var="group">
-                <a href="team/add/${group.idGroup}"><li>${group.groupName}</li></a>
-            </c:forEach>
-                
+                <li><a href="group/${group.idGroup}">${group.groupName}</a></li>
+                </c:forEach>
         </ul>
 
-       
+
     </body>
 </html>

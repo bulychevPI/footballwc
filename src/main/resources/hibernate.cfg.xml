@@ -9,10 +9,13 @@
     <property name="hibernate.connection.password">1558</property>
     <property name="hibernate.connection.pool_size">1</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.enable_lazy_load_no_trans">true</property>
     <mapping class="com.footballwc.entity.Fgroup"/>
     <mapping class="com.footballwc.entity.Goal"/>
     <mapping class="com.footballwc.entity.Match"/>
     <mapping class="com.footballwc.entity.Player"/>
     <mapping class="com.footballwc.entity.Team"/>
+    <mapping class="com.footballwc.entity.Groupresults"/>
+
   </session-factory>
 </hibernate-configuration>
